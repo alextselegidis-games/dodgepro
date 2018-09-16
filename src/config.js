@@ -1,6 +1,6 @@
 export default {
-  gameWidth: 760,
-  gameHeight: 400,
-  localStorageName: 'dodgepro',
-  webfonts: ['Bangers']
+    gameWidth: 760,
+    gameHeight: 400,
+    localStorageName: 'dodgepro',
+    webfonts: ['Bangers']
 }
