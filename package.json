@@ -1,16 +1,16 @@
 {
-    "name": "PhaserES6Webpack",
-    "version": "1.2.1",
-    "description": "",
-    "author": "leandro cabrera <leandcabrera@gmail.com>",
+    "name": "Dodgepro",
+    "version": "1.0.0",
+    "description": "Dodging things like a pro.",
+    "author": "BigBlackCode <bigblackcode.team@gmail.com>",
     "main": "index.js",
     "scripts": {
-        "dev": "webpack",
-        "deploy": "webpack --config webpack.production.config.js",
+        "start": "webpack",
+        "build": "webpack --config webpack.production.config.js",
         "cordova": "webpack --config webpack.cordova.config.js",
-        "test": "eslint './src/**/*.js'"
+        "lint": "eslint './src/**/*.js'"
     },
-    "license": "MIT",
+    "license": "GPL-3.0",
     "devDependencies": {
         "babel-core": "^6.26.0",
         "babel-eslint": "^8.2.1",
