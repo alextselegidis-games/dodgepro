@@ -1,33 +1,34 @@
-import 'pixi'
-import 'p2'
-import Phaser from 'phaser'
-import BootState from './states/Boot'
-import SplashState from './states/Splash'
-import GameState from './states/Game'
-import config from './config'
-import {initializeCordova} from './utils';
+/**
+ * This file is part of Dodgepro.
+ *
+ * Dodgepro is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Dodgepro is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Dodgepro.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+import Phaser from 'phaser';
+import BootScene from './scenes/Boot';
+import SplashScene from './scenes/Splash';
+import GameScene from './scenes/Game';
+import config from './config';
+
+const gameConfig = Object.assign(config, {
+    scene: [BootScene, SplashScene, GameScene]
+});
 
 class Game extends Phaser.Game {
     constructor() {
-        const docElement = document.documentElement
-        const width = docElement.clientWidth > config.gameWidth ? config.gameWidth : docElement.clientWidth
-        const height = docElement.clientHeight > config.gameHeight ? config.gameHeight : docElement.clientHeight
-
-        super(width, height, Phaser.CANVAS, 'content', null)
-
-        this.state.add('Boot', BootState, false)
-        this.state.add('Splash', SplashState, false)
-        this.state.add('Game', GameState, false)
-
-        // with Cordova with need to wait that the device is ready so we will call the Boot state in another file
-        if (!window.cordova) {
-            this.state.start('Boot')
-        }
+        super(gameConfig);
     }
 }
 
 window.game = new Game();
-
-if (window.cordova) {
-    initializeCordova();
-}

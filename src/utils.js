@@ -1,30 +1,22 @@
+/**
+ * This file is part of Dodgepro.
+ *
+ * Dodgepro is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Dodgepro is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Dodgepro.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 export const centerGameObjects = (objects) => {
     objects.forEach(function (object) {
-        object.anchor.setTo(0.5);
-    });
-};
-
-export const initializeCordova = () => {
-    const app = {
-        initialize: function () {
-            document.addEventListener(
-                'deviceready',
-                this.onDeviceReady.bind(this),
-                false
-            )
-        },
-
-        onDeviceReady: function () {
-            this.receivedEvent('deviceready')
-
-            // When the device is ready, start Phaser Boot state.
-            window.game.state.start('Boot')
-        },
-
-        receivedEvent: function (id) {
-            console.log('Received Event: ' + id)
-        }
-    };
-
-    app.initialize();
+        object.anchor.setTo(0.5)
+    })
 };
