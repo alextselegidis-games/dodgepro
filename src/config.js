@@ -22,5 +22,14 @@ export default {
     parent: 'content',
     width: 800,
     height: 600,
-    localStorageName: 'dodgepro'
+    localStorageName: 'dodgepro',
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: {
+                y: 300
+            },
+            debug: false
+        }
+    }
 };
