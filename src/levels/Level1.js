@@ -24,4 +24,14 @@ export default class {
             // ...
         };
     }
+
+    init() {
+    }
+
+    preload() {
+    }
+
+    create() {
+
+    }
 }
