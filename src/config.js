@@ -22,6 +22,7 @@ export default {
     parent: 'content',
     width: 800,
     height: 600,
+    backgroundColor: '#31152b',
     localStorageName: 'dodgepro',
     physics: {
         default: 'arcade',
