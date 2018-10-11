@@ -32,7 +32,7 @@ export default class extends Phaser.Scene {
 
         WebFont.load({
             google: {
-                families: ['Bangers']
+                families: ['Rajdhani']
             },
             active: this.fontsLoaded
         })

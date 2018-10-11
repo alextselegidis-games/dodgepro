@@ -40,7 +40,7 @@ export default class extends Phaser.Scene {
 
         this.add.existing(this.mushroom);
         this.add.text(100, 100, 'Dodgepro ', {
-            font: '64px Bangers',
+            font: '64px Rajdhani',
             fill: '#7744ff'
         });
     }
