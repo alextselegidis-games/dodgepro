@@ -15,7 +15,6 @@
  * along with Dodgepro.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* globals __DEV__ */
 import Phaser from 'phaser';
 import Mushroom from '../sprites/Mushroom';
 
