@@ -23,7 +23,7 @@ export default class extends Phaser.Scene {
     }
 
     preload() {
-        // load your assets
+        // Load the game assets.
         this.load.image('mushroom', 'assets/images/mushroom2.png');
         this.load.image('bigblackcode-logo', 'assets/images/bigblackcode-logo.png');
     }
@@ -32,7 +32,7 @@ export default class extends Phaser.Scene {
         this.add.image(400, 300, 'bigblackcode-logo');
 
         setTimeout(() => {
-            this.scene.start('GameScene');
+            this.scene.start('MenuScene');
         }, 2000);
     }
 

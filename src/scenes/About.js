@@ -15,11 +15,11 @@
  * along with Dodgepro.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import Phaser from 'phaser';
+import Phaser from 'phaser'
 
 export default class extends Phaser.Scene {
     constructor() {
-        super({key: 'MenuScene'});
+        super({key: 'AboutScene'});
     }
 
     create() {
@@ -28,22 +28,17 @@ export default class extends Phaser.Scene {
             fill: '#7744ff'
         };
 
-        const play = this.add.text(100, 100, 'Play ', style).setInteractive();
+        const content = `
+        This is the about content
+        with a new line
+        `;
 
-        play.on('pointerup', () => {
-            this.scene.start('GameScene');
-        });
+        this.add.text(100, 100, content, style);
 
-        const about = this.add.text(100, 300, 'About ', style).setInteractive();
+        const back = this.add.text(100, 200, 'Back', style).setInteractive();
 
-        about.on('pointerup', () => {
-            this.scene.start('AboutScene');
-        });
-
-        const feedback = this.add.text(100, 500, 'Feedback ', style).setInteractive();
-
-        feedback.on('pointerup', () => {
-
+        back.on('pointerup', () => {
+            this.scene.start('MenuScene');
         });
     }
 }
