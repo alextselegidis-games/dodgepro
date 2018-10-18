@@ -43,7 +43,7 @@ export default class extends Phaser.Scene {
         const feedback = this.add.text(100, 500, 'Feedback ', style).setInteractive();
 
         feedback.on('pointerup', () => {
-
+            window.open('https://example.org', '_blank');
         });
     }
 }
