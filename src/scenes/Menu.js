@@ -24,23 +24,27 @@ export default class extends Phaser.Scene {
 
     create() {
         const style = {
-            font: '64px Rajdhani',
-            fill: '#7744ff'
+            font: '32px Rajdhani, sans-serif',
+            fill: '#ffffff',
+            align: 'center'
         };
 
-        const play = this.add.text(100, 100, 'Play ', style).setInteractive();
+        const logo = this.add.image(400, 150, 'bigblackcode-logo').setOrigin(0.5, 0.5);
+        logo.setScale(0.5);
+
+        const play = this.add.text(400, 300, 'Play ', style).setInteractive().setOrigin(0.5, 0.5);
 
         play.on('pointerup', () => {
             this.scene.start('GameScene');
         });
 
-        const about = this.add.text(100, 300, 'About ', style).setInteractive();
+        const about = this.add.text(400, 370, 'About ', style).setInteractive().setOrigin(0.5, 0.5);
 
         about.on('pointerup', () => {
             this.scene.start('AboutScene');
         });
 
-        const feedback = this.add.text(100, 500, 'Feedback ', style).setInteractive();
+        const feedback = this.add.text(400, 440, 'Feedback ', style).setInteractive().setOrigin(0.5, 0.5);
 
         feedback.on('pointerup', () => {
             window.open('https://example.org', '_blank');
