@@ -24,7 +24,7 @@ export default class extends Phaser.Scene {
 
     preload() {
         // Load the game assets.
-        this.load.image('mushroom', 'assets/images/mushroom2.png');
+        this.load.spritesheet('robot', 'assets/images/sprites/robot.png', {frameWidth: 32, frameHeight: 48});
         this.load.image('bigblackcode-logo', 'assets/images/bigblackcode-logo.png');
     }
 
