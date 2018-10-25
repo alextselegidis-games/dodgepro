@@ -26,7 +26,7 @@ export default class extends Phaser.Scene {
     preload() {
         this.fontsReady = false;
         this.fontsLoaded = this.fontsLoaded.bind(this);
-        this.add.text(100, 100, 'loading fonts...');
+        this.add.text(100, 100, 'Loading ...');
 
         WebFont.load({
             google: {
