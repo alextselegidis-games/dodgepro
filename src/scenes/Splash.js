@@ -29,6 +29,9 @@ export default class extends Phaser.Scene {
     }
 
     create() {
+        // dev
+        this.scene.start('GameScene');
+        return;
         this.add.image(400, 300, 'bigblackcode-logo');
 
         setTimeout(() => {

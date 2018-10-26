@@ -29,6 +29,28 @@ export default class extends Phaser.Scene {
     }
 
     create() {
+        const style = {
+            font: '32px Rajdhani, sans-serif',
+            fill: '#ffffff',
+            align: 'center'
+        };
 
+        const logo = this.add.image(400, 150, 'bigblackcode-logo').setOrigin(0.5, 0.5);
+        logo.setScale(0.5);
+
+        const continueGame = this.add.text(400, 300, 'Continue', style).setInteractive().setOrigin(0.5, 0.5);
+
+        continueGame.on('pointerup', () => {
+            this.scene.stop('GameMenuScene');
+            this.scene.resume('GameScene');
+        });
+
+        const mainMenu = this.add.text(400, 370, 'Main Menu', style).setInteractive().setOrigin(0.5, 0.5);
+
+        mainMenu.on('pointerup', () => {
+            this.scene.stop('GameScene');
+            this.scene.stop('GameMenuScene');
+            this.scene.start('MenuScene');
+        });
     }
 }
