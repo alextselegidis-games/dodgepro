@@ -42,6 +42,7 @@ export default class extends Phaser.Scene {
 
         continueGame.on('pointerup', () => {
             this.scene.stop('GameMenuScene');
+            this.scene.setVisible(true, 'GameScene');
             this.scene.resume('GameScene');
         });
 

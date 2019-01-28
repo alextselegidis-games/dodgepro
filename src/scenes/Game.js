@@ -76,8 +76,9 @@ export default class extends Phaser.Scene {
         });
 
         menu.on('pointerup', () => {
+            this.scene.setVisible(false);
             this.scene.pause('GameScene');
-            this.scene.start('GameMenuScene');
+            this.scene.launch('GameMenuScene');
         });
 
         menu.setInteractive();
