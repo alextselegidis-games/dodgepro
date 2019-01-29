@@ -17,17 +17,25 @@
 
 import Level1 from '../levels/Level1';
 
-let index = 1;
+let level = 1;
 
 export const LevelScenes = [
     Level1
 ];
 
 export const levelScene = () => {
-    return `Level${index}`;
+    return `Level${level}`;
 };
 
-export const changeLevel = (level) => {
-    index = level;
+export const increaseLevel = () => {
+    level++;
+};
+
+export const decreaseLevel = () => {
+    level++;
+};
+
+export const resetLevel = () => {
+    level = 1;
 };
 
