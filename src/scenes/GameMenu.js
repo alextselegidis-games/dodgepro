@@ -16,6 +16,7 @@
  */
 
 import Phaser from 'phaser';
+import {levelScene} from '../core/LevelManager';
 
 export default class extends Phaser.Scene {
     constructor() {
@@ -42,14 +43,14 @@ export default class extends Phaser.Scene {
 
         continueGame.on('pointerup', () => {
             this.scene.stop('GameMenuScene');
-            this.scene.setVisible(true, 'GameScene');
-            this.scene.resume('GameScene');
+            this.scene.setVisible(true, levelScene());
+            this.scene.resume(levelScene());
         });
 
         const mainMenu = this.add.text(400, 370, 'Main Menu', style).setInteractive().setOrigin(0.5, 0.5);
 
         mainMenu.on('pointerup', () => {
-            this.scene.stop('GameScene');
+            this.scene.stop(levelScene());
             this.scene.stop('GameMenuScene');
             this.scene.start('MenuScene');
         });

@@ -18,14 +18,14 @@
 import Phaser from 'phaser';
 import BootScene from './scenes/Boot';
 import SplashScene from './scenes/Splash';
-import GameScene from './scenes/Game';
 import GameMenuScene from './scenes/GameMenu';
 import MenuScene from './scenes/Menu';
 import AboutScene from './scenes/About';
 import config from './config';
+import {LevelScenes} from './core/LevelManager';
 
 const gameConfig = Object.assign(config, {
-    scene: [BootScene, SplashScene, MenuScene, GameScene, GameMenuScene, AboutScene]
+    scene: [BootScene, SplashScene, MenuScene, GameMenuScene, AboutScene, ...LevelScenes]
 });
 
 class Game extends Phaser.Game {

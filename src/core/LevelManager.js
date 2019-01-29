@@ -15,6 +15,19 @@
  * along with Dodgepro.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export default class {
+import Level1 from '../levels/Level1';
 
-}
+let index = 1;
+
+export const LevelScenes = [
+    Level1
+];
+
+export const levelScene = () => {
+    return `Level${index}`;
+};
+
+export const changeLevel = (level) => {
+    index = level;
+};
+
