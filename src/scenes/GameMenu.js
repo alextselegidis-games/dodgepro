@@ -16,7 +16,7 @@
  */
 
 import Phaser from 'phaser';
-import {levelScene} from '../core/LevelManager';
+import {levelScene, resetLevel} from '../core/LevelManager';
 
 export default class extends Phaser.Scene {
     constructor() {
@@ -24,9 +24,11 @@ export default class extends Phaser.Scene {
     }
 
     init() {
+
     }
 
     preload() {
+        
     }
 
     create() {
@@ -53,6 +55,7 @@ export default class extends Phaser.Scene {
             this.scene.stop(levelScene());
             this.scene.stop('GameMenuScene');
             this.scene.start('MenuScene');
+            resetLevel();
         });
     }
 }
