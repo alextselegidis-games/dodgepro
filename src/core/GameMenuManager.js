@@ -15,6 +15,3 @@
  * along with Dodgepro.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export default class {
-
-}
