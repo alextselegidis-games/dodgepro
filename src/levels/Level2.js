@@ -17,19 +17,17 @@
 
 import {levelScene, increaseLevel, gameCompleted} from '../core/LevelManager';
 import Level from '../scenes/Level'; 
-import {generateRedBarell, generateGreenBarell, generateBox} from '../core/ObjectGenerator'; 
+import {generateRedBarell} from '../core/ObjectGenerator'; 
 
 export default class extends Level {
     constructor() {
-        super({key: 'Level1'});
+        super({key: 'Level2'});
         
         this.config = {
-            level: 1,
-            length: 5000,
-            generation: 300
+            level: 2,
+            length: 7000,
         };
 
-        this.lastGenerationStep = 0; 
     }
 
     init() {
@@ -76,7 +74,7 @@ export default class extends Level {
             increaseLevel();
 
             if (gameCompleted()) {
-                this.scene.launch('GameCompletedScene');
+                this.scene.start('GameCompletedScene');
                 return;
             }
 
@@ -87,27 +85,9 @@ export default class extends Level {
     updateObjects() {
         var value = Math.random(); 
 
-        if (value > 0.997 && (this.progress - this.lastGenerationStep) >= this.config.generation) {
-            this.lastGenerationStep = this.progress; 
+        if (value > 0.995) {
             generateRedBarell(this.objects); 
-            return;
         }
-
-        if (value > 0.995 && (this.progress - this.lastGenerationStep) >= this.config.generation) {
-            this.lastGenerationStep = this.progress; 
-            generateGreenBarell(this.objects); 
-            return;
-        }
-
-        // if (value > 0.990 && (this.progress - this.lastGenerationStep) >= this.config.generation) {
-        if (value > 0.700 && (this.progress - this.lastGenerationStep) >= this.config.generation) {
-            this.lastGenerationStep = this.progress; 
-            generateRedBarell(this.objects); 
-            return;
-        }
-
-        // Phaser.Actions.RotateAroundDistance(this.objects.getChildren(), { x: 400, y: 300 }, 0.02, 200);
-
     }
 
     onHitObject(robot, object) {
@@ -122,7 +102,7 @@ export default class extends Level {
 
         object.hit++; 
 
-        if (object.hit === object.hitPoints) {
+        if (object.hit === 3) {
             object.disableBody(true, true); 
         }
     }
