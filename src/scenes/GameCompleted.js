@@ -16,37 +16,35 @@
  */
 
 import Phaser from 'phaser'
-import WebFont from 'webfontloader'
+import {levelScene, resetLevel} from '../core/LevelManager'; 
 
 export default class extends Phaser.Scene {
     constructor() {
-        super({key: 'BootScene'});
+        super({key: 'GameCompletedScene'});
     }
 
-    preload() {
-        this.fontsReady = false;
-        this.fontsLoaded = this.fontsLoaded.bind(this);
-        this.add.text(400, 300, 'Loading ...').setOrigin(0.5, 0.5);
+    create() {
+        const headingStyle = {
+            font: '64px Rajdhani',
+            fill: '#ffffff'
+        };
 
-        WebFont.load({
-            google: {
-                families: ['Rajdhani']
-            },
-            active: this.fontsLoaded
+        const content = `Game Completed`;
+
+        this.add.text(100, 100, content, headingStyle);
+
+        const menuStyle = {
+            font: '32px Rajdhani, sans-serif',
+            fill: '#ffffff',
+            align: 'center'
+        };
+
+        const mainMenu = this.add.text(400, 370, 'Main Menu', menuStyle).setInteractive().setOrigin(0.5, 0.5);
+
+        mainMenu.on('pointerup', () => {
+            this.scene.stop('GameCompletedScene');
+            this.scene.start('MenuScene');
+            resetLevel();
         });
-
-        setTimeout(() => {
-            this.fontsReady = true; // fallback in case fonts are not loading (offline)
-        }, 1000);
-    }
-
-    update() {
-        if (this.fontsReady) {
-            this.scene.start('SplashScene');
-        }
-    }
-
-    fontsLoaded() {
-        this.fontsReady = true;
     }
 }

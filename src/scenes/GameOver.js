@@ -16,10 +16,11 @@
  */
 
 import Phaser from 'phaser'
+import {levelScene, resetLevel} from '../core/LevelManager'; 
 
 export default class extends Phaser.Scene {
     constructor() {
-        super({key: 'AboutScene'});
+        super({key: 'GameOverScene'});
     }
 
     create() {
@@ -29,19 +30,9 @@ export default class extends Phaser.Scene {
             align: 'center'
         };
 
-        const heading = `About`;
+        const content = `Game Over`;
 
-        this.add.text(400, 150, heading, headingStyle).setOrigin(0.5, 0.5);
-
-        const style = {
-            font: '24px Rajdhani, sans-serif',
-            fill: '#ffffff',
-            align: 'center'
-        };
-
-        const content = `This is the about content with a new line`;
-
-        this.add.text(400, 300, content, style).setOrigin(0.5, 0.5);
+        this.add.text(400, 150, content, headingStyle).setOrigin(0.5, 0.5);
 
         const menuStyle = {
             font: '32px Rajdhani, sans-serif',
@@ -49,10 +40,20 @@ export default class extends Phaser.Scene {
             align: 'center'
         };
 
-        const back = this.add.text(400, 400, 'Back', menuStyle).setInteractive().setOrigin(0.5, 0.5);
+        const retryGame = this.add.text(400, 300, 'Retry', menuStyle).setInteractive().setOrigin(0.5, 0.5);
 
-        back.on('pointerup', () => {
+        retryGame.on('pointerup', () => {
+            this.scene.stop('GameOverScene');
+            this.scene.setVisible(true, levelScene());
+            this.scene.start(levelScene());
+        });
+
+        const mainMenu = this.add.text(400, 370, 'Main Menu', menuStyle).setInteractive().setOrigin(0.5, 0.5);
+
+        mainMenu.on('pointerup', () => {
+            this.scene.stop('GameOverScene');
             this.scene.start('MenuScene');
+            resetLevel();
         });
     }
 }

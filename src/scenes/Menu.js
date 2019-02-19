@@ -16,7 +16,7 @@
  */
 
 import Phaser from 'phaser';
-import {levelScene} from '../core/LevelManager';
+import {levelScene, resetLevel} from '../core/LevelManager';
 
 export default class extends Phaser.Scene {
     constructor() {
@@ -36,6 +36,7 @@ export default class extends Phaser.Scene {
         const play = this.add.text(400, 300, 'Play ', style).setInteractive().setOrigin(0.5, 0.5);
 
         play.on('pointerup', () => {
+            resetLevel();
             this.scene.start(levelScene());
         });
 
