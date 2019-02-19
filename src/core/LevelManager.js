@@ -16,11 +16,13 @@
  */
 
 import Level1 from '../levels/Level1';
+import Level2 from '../levels/Level2';
 
 let level = 1;
 
 export const LevelScenes = [
-    Level1
+    Level1,
+    Level2
 ];
 
 export const levelScene = () => {
@@ -37,5 +39,9 @@ export const decreaseLevel = () => {
 
 export const resetLevel = () => {
     level = 1;
+};
+
+export const gameCompleted = () => {
+	return level > LevelScenes.length; 
 };
 
