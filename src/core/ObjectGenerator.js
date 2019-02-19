@@ -16,7 +16,7 @@
  */
 
 export const generateRedBarell = (parentGroup) => {
-	var object = parentGroup.create(Phaser.Math.Between(0, 800), -100, 'barrel-red');
+    var object = parentGroup.create(Phaser.Math.Between(0, 800), -100, 'barrel-red');
     object.setScale(0.5);
     object.setBounce(0.5);
     object.setCollideWorldBounds(true);
@@ -30,7 +30,7 @@ export const generateRedBarell = (parentGroup) => {
 };
 
 export const generateGreenBarell = (parentGroup) => {
-	var object = parentGroup.create(Phaser.Math.Between(0, 800), -100, 'barrel-green');
+    var object = parentGroup.create(Phaser.Math.Between(0, 800), -100, 'barrel-green');
     object.setScale(0.7);
     object.setBounce(0.7);
     object.setCollideWorldBounds(true);
@@ -40,7 +40,7 @@ export const generateGreenBarell = (parentGroup) => {
 };
 
 export const generateBox = (parentGroup) => {
-	var object = parentGroup.create(Phaser.Math.Between(0, 800), -100, 'box');
+    var object = parentGroup.create(Phaser.Math.Between(0, 800), -100, 'box');
     object.setScale(0.8);
     object.setBounce(0.8);
     object.setCollideWorldBounds(true);

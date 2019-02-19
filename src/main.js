@@ -28,15 +28,15 @@ import {LevelScenes} from './core/LevelManager';
 
 const gameConfig = Object.assign(config, {
     scene: [
-    	BootScene, 
-    	SplashScene, 
-    	MenuScene, 
-    	GameMenuScene, 
-    	GameOverScene, 
-    	GameCompletedScene, 
-    	AboutScene, 
-    	...LevelScenes
-	]
+        BootScene,
+        SplashScene,
+        MenuScene,
+        GameMenuScene,
+        GameOverScene,
+        GameCompletedScene,
+        AboutScene,
+        ...LevelScenes
+    ]
 });
 
 class Game extends Phaser.Game {

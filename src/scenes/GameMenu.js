@@ -28,7 +28,7 @@ export default class extends Phaser.Scene {
     }
 
     preload() {
-        
+
     }
 
     create() {

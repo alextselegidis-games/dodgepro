@@ -16,7 +16,7 @@
  */
 
 import Phaser from 'phaser'
-import {levelScene, resetLevel} from '../core/LevelManager'; 
+import {levelScene, resetLevel} from '../core/LevelManager';
 
 export default class extends Phaser.Scene {
     constructor() {

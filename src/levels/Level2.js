@@ -16,16 +16,16 @@
  */
 
 import {levelScene, increaseLevel, gameCompleted} from '../core/LevelManager';
-import Level from '../scenes/Level'; 
-import {generateRedBarell} from '../core/ObjectGenerator'; 
+import Level from '../scenes/Level';
+import {generateRedBarell} from '../core/ObjectGenerator';
 
 export default class extends Level {
     constructor() {
         super({key: 'Level2'});
-        
+
         this.config = {
             level: 2,
-            length: 7000,
+            length: 7000
         };
 
     }
@@ -48,9 +48,9 @@ export default class extends Level {
     }
 
     create() {
-        this.createCursors(); 
-        this.createPlayer(); 
-        this.createGameMenuBar(); 
+        this.createCursors();
+        this.createPlayer();
+        this.createGameMenuBar();
 
         this.platforms = this.physics.add.staticGroup();
         this.platforms.create(400, 568, 'ground').setScale(2).refreshBody();
@@ -64,12 +64,12 @@ export default class extends Level {
     }
 
     update() {
-        this.updatePlayer(); 
+        this.updatePlayer();
         this.updateObjects();
-        this.updateProgress(); 
+        this.updateProgress();
 
         if (this.progress > this.config.length) {
-            this.scene.stop(levelScene()); 
+            this.scene.stop(levelScene());
 
             increaseLevel();
 
@@ -79,19 +79,19 @@ export default class extends Level {
             }
 
             this.scene.start(levelScene());
-        } 
+        }
     }
 
     updateObjects() {
-        var value = Math.random(); 
+        var value = Math.random();
 
         if (value > 0.995) {
-            generateRedBarell(this.objects); 
+            generateRedBarell(this.objects);
         }
     }
 
     onHitObject(robot, object) {
-        this.scene.stop(levelScene()); 
+        this.scene.stop(levelScene());
         this.scene.start('GameOverScene');
     }
 
@@ -100,10 +100,10 @@ export default class extends Level {
             object.hit = 0;
         }
 
-        object.hit++; 
+        object.hit++;
 
         if (object.hit === 3) {
-            object.disableBody(true, true); 
+            object.disableBody(true, true);
         }
     }
 }

@@ -42,6 +42,6 @@ export const resetLevel = () => {
 };
 
 export const gameCompleted = () => {
-	return level > LevelScenes.length; 
+    return level > LevelScenes.length;
 };
 

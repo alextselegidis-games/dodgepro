@@ -20,17 +20,17 @@ import {levelScene} from '../core/LevelManager';
 
 export default class extends Phaser.Scene {
     constructor(config) {
-        super(config); 
-        
-        this.progress = 0; 
+        super(config);
+
+        this.progress = 0;
     }
 
-	createCursors() {
-		this.cursors = this.input.keyboard.createCursorKeys();
-	}
+    createCursors() {
+        this.cursors = this.input.keyboard.createCursorKeys();
+    }
 
-	createGameMenuBar() {
-		this.add.text(5, 5, 'Dodgepro', {
+    createGameMenuBar() {
+        this.add.text(5, 5, 'Dodgepro', {
             font: '32px Rajdhani, sans-serif',
             fill: '#ffffff'
         });
@@ -52,36 +52,36 @@ export default class extends Phaser.Scene {
         });
 
         menu.setInteractive();
-	}
+    }
 
     createPlayer() {
-    	this.player = this.physics.add.sprite(400, 50, 'robot');
+        this.player = this.physics.add.sprite(400, 50, 'robot');
         this.player.setBounce(0.2);
         this.player.setCollideWorldBounds(true);
 
         this.anims.create({
             key: 'left',
-            frames: this.anims.generateFrameNumbers('robot', { start: 0, end: 3 }),
+            frames: this.anims.generateFrameNumbers('robot', {start: 0, end: 3}),
             frameRate: 10,
             repeat: -1
         });
 
         this.anims.create({
             key: 'turn',
-            frames: [ { key: 'robot', frame: 4 } ],
+            frames: [{key: 'robot', frame: 4}],
             frameRate: 20
         });
 
         this.anims.create({
             key: 'right',
-            frames: this.anims.generateFrameNumbers('robot', { start: 5, end: 8 }),
+            frames: this.anims.generateFrameNumbers('robot', {start: 5, end: 8}),
             frameRate: 10,
             repeat: -1
         });
     }
 
     updatePlayer() {
-    	if (this.cursors.left.isDown) {
+        if (this.cursors.left.isDown) {
             this.player.setVelocityX(-160);
             this.player.anims.play('left', true);
         } else if (this.cursors.right.isDown) {

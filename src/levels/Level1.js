@@ -16,20 +16,20 @@
  */
 
 import {levelScene, increaseLevel, gameCompleted} from '../core/LevelManager';
-import Level from '../scenes/Level'; 
-import {generateRedBarell, generateGreenBarell, generateBox} from '../core/ObjectGenerator'; 
+import Level from '../scenes/Level';
+import {generateRedBarell, generateGreenBarell, generateBox} from '../core/ObjectGenerator';
 
 export default class extends Level {
     constructor() {
         super({key: 'Level1'});
-        
+
         this.config = {
             level: 1,
             length: 5000,
             generation: 300
         };
 
-        this.lastGenerationStep = 0; 
+        this.lastGenerationStep = 0;
     }
 
     init() {
@@ -50,9 +50,9 @@ export default class extends Level {
     }
 
     create() {
-        this.createCursors(); 
-        this.createPlayer(); 
-        this.createGameMenuBar(); 
+        this.createCursors();
+        this.createPlayer();
+        this.createGameMenuBar();
 
         this.platforms = this.physics.add.staticGroup();
         this.platforms.create(400, 568, 'ground').setScale(2).refreshBody();
@@ -66,12 +66,12 @@ export default class extends Level {
     }
 
     update() {
-        this.updatePlayer(); 
+        this.updatePlayer();
         this.updateObjects();
-        this.updateProgress(); 
+        this.updateProgress();
 
         if (this.progress > this.config.length) {
-            this.scene.stop(levelScene()); 
+            this.scene.stop(levelScene());
 
             increaseLevel();
 
@@ -81,28 +81,28 @@ export default class extends Level {
             }
 
             this.scene.start(levelScene());
-        } 
+        }
     }
 
     updateObjects() {
-        var value = Math.random(); 
+        var value = Math.random();
 
         if (value > 0.997 && (this.progress - this.lastGenerationStep) >= this.config.generation) {
-            this.lastGenerationStep = this.progress; 
-            generateRedBarell(this.objects); 
+            this.lastGenerationStep = this.progress;
+            generateRedBarell(this.objects);
             return;
         }
 
         if (value > 0.995 && (this.progress - this.lastGenerationStep) >= this.config.generation) {
-            this.lastGenerationStep = this.progress; 
-            generateGreenBarell(this.objects); 
+            this.lastGenerationStep = this.progress;
+            generateGreenBarell(this.objects);
             return;
         }
 
         // if (value > 0.990 && (this.progress - this.lastGenerationStep) >= this.config.generation) {
         if (value > 0.700 && (this.progress - this.lastGenerationStep) >= this.config.generation) {
-            this.lastGenerationStep = this.progress; 
-            generateRedBarell(this.objects); 
+            this.lastGenerationStep = this.progress;
+            generateRedBarell(this.objects);
             return;
         }
 
@@ -111,7 +111,7 @@ export default class extends Level {
     }
 
     onHitObject(robot, object) {
-        this.scene.stop(levelScene()); 
+        this.scene.stop(levelScene());
         this.scene.start('GameOverScene');
     }
 
@@ -120,10 +120,10 @@ export default class extends Level {
             object.hit = 0;
         }
 
-        object.hit++; 
+        object.hit++;
 
         if (object.hit === object.hitPoints) {
-            object.disableBody(true, true); 
+            object.disableBody(true, true);
         }
     }
 }
