@@ -46,10 +46,10 @@ export default class extends Phaser.Scene {
             this.scene.start('AboutScene');
         });
 
-        const feedback = this.add.text(400, 440, 'Feedback ', style).setInteractive().setOrigin(0.5, 0.5);
+        const feedback = this.add.text(400, 440, 'More', style).setInteractive().setOrigin(0.5, 0.5);
 
         feedback.on('pointerup', () => {
-            window.open('https://example.org', '_blank');
+            window.open('https://bigblackcode.com', '_blank');
         });
     }
 }
