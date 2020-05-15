@@ -18,8 +18,6 @@
   <a href="#license">License</a>
 </p>
 
-![screenshot](screenshot.gif)
-
 ## About
 
 Dodgepro is a HTML5 game made with Phaser, featuring fun to play levels and avoiding randomly thrown objects.  
