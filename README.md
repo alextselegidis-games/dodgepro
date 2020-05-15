@@ -20,7 +20,7 @@
 
 ## About
 
-Dodgepro is a HTML5 game made with Phaser, featuring fun to play levels and avoiding randomly thrown objects.  
+Dodgepro is a 2D arcade web game, requiring quick reflexes and movement combinations in order to survive the upcoming level destruction. The game is under development and will be released soon.
 
 ## Setup
 
